@@ -71,9 +71,9 @@ class RevenuesDataTable extends DataTable
                 Button::make('excel'),
                 Button::make('csv'),
                 Button::make('pdf'),
-                Button::make('print'),
-                Button::make('reset'),
-                Button::make('reload')
+                // Button::make('print'),
+                // Button::make('reset'),
+                // Button::make('reload')
             ]);
     }
 

@@ -13,6 +13,7 @@ $(function () {
   //-----------------------
 
   // Get context with jQuery - using jQuery's .get() method.
+  try{
   var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
 
   var salesChartData = {
@@ -42,6 +43,7 @@ $(function () {
       }
     ]
   }
+}catch(e){}
 
   var salesChartOptions = {
     maintainAspectRatio: false,
