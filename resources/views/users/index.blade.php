@@ -31,13 +31,13 @@
         </div>
     @endif
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end mb-3">
         <button type="button" class="btn btn-success rounded me-2" onclick="createmodalShow(event)" data-bs-toggle="modal"
                 data-bs-target="#create-user">Create New User</button>
     </div>
 
     <div class="table-responsive">
-        {{ $dataTable->table() }}
+        {{ $dataTable->table(['class' => 'table table-bordered table-striped w-100']) }}
     </div>
 
     <!-- Create User Modal -->
