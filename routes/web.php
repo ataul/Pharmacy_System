@@ -14,6 +14,7 @@ use App\Http\Controllers\ChartController;
 use  Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\ForbidBannedUser;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -134,6 +135,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/medicines/{id}/edit', [MedicineController::class, 'edit'])->name('medicines.edit');
         Route::put('/medicines/{medicine}', [MedicineController::class, 'update'])->name('medicines.update');
         Route::delete('/medicines/{id}', [MedicineController::class, 'destroy'])->name('medicines.destroy');
+
+        //User routes
+        Route::resource('users', UserController::class);
     });
 });
 //Email-verification
