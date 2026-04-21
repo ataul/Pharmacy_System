@@ -40,9 +40,13 @@ class User extends Authenticatable implements MustVerifyEmail, BannableInterface
         'password',
         'remember_token',
     ];
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
     public function owns()
     {
         return $this->hasOne(Pharmacy::class, 'user_id');

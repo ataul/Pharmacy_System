@@ -23,12 +23,15 @@ class Pharmacy extends Model
         'password'
     ];
 
-    protected $casts = [
-        'id' => 'integer',
-        'created_at' => 'date:Y-m-d',
-        'updated_at' => 'date:Y-m-d',
-        'deleted_at' => 'date:Y-m-d'
-    ];
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+            'created_at' => 'date:Y-m-d',
+            'updated_at' => 'date:Y-m-d',
+            'deleted_at' => 'date:Y-m-d',
+        ];
+    }
 
     public function area()
     {
