@@ -28,9 +28,12 @@ class Doctor extends Model implements BannableInterface
         'password'
     ];
 
-    protected $casts = [
-        'deleted_at' => 'date:Y-m-d'
-    ];
+    protected function casts(): array
+    {
+        return [
+            'deleted_at' => 'date:Y-m-d',
+        ];
+    }
 
     public function pharmacy()
     {

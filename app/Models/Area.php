@@ -17,9 +17,12 @@ class Area extends Model
         'country_id'
     ];
 
-    protected $casts = [
-        'id' => 'integer',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+        ];
+    }
 
     public function pharmacies(){
         return $this->hasMany(Pharmacy::class ,'area_id');

@@ -23,10 +23,13 @@ class Order extends Model
         'price'
 
     ];
-    protected $casts = [
-        'created_at' => 'date:Y-m-d',
-        'updated_at' => 'date:Y-m-d',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'date:Y-m-d',
+            'updated_at' => 'date:Y-m-d',
+        ];
+    }
     public function pharmacy()
     {
         return $this->belongsTo(Pharmacy::class, 'pharmacy_id');
