@@ -75,19 +75,35 @@ class CreatePermissionTables extends Migration
             }
 
         });
+        Schema::create('model_has_roles', function (Blueprint $table) {
+    $table->unsignedBigInteger('role_id');
 
+    $table->string('model_type');
+    $table->unsignedBigInteger('model_id');
+
+    $table->index(['model_id', 'model_type'], 'model_has_roles_model_id_model_type_index');
+
+    $table->foreign('role_id')
+        ->references('id')
+        ->on('roles')
+        ->onDelete('cascade');
+
+    $table->primary(['role_id', 'model_id', 'model_type'],
+        'model_has_roles_role_model_type_primary');
+});
+/*
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
             //$table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_roles_model_id_model_type_index');
-/*
+
             $table->foreign(PermissionRegistrar::$pivotRole)
                 ->references('id') // role id
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
-                */
+                
             if ($teams) {
                 $table->unsignedBigInteger($columnNames['team_foreign_key']);
                 $table->index($columnNames['team_foreign_key'], 'model_has_roles_team_foreign_key_index');
@@ -98,9 +114,10 @@ class CreatePermissionTables extends Migration
                 /*
                 $table->primary([PermissionRegistrar::$pivotRole, $columnNames['model_morph_key'], 'model_type'],
                     'model_has_roles_role_model_type_primary');
-                    */
+                    
             }
         });
+        */
         /*
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
             //$table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
