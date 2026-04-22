@@ -28,11 +28,11 @@ class StoreClientRequest extends FormRequest
             'name' => ['required', 'min:3'], //
             'email' => ['required', 'email', 'unique:users,email'], //
             'password' => ['required', 'min:6','confirmed'], //
-            'id' => ['required', Rule::unique('clients')->ignore($this->client), 'size:14'], //
+            'id' => ['required', Rule::unique('clients')->ignore($this->client)], //
             'gender' => ['required', 'in:Male,Female'], //
             'date_of_birth' => ['required', 'date'], //
             'avatar_image' => ['image', 'mimes:jpeg,png', 'max:2048'], //
-            'phone' => ['required', 'regex:/^01[0-1-2-5]\d{8}$/'], //
+            'phone' => ['required'], //
             'email_verified_at' => ['nullable', 'date_format:Y-m-d H:i:s']
         ];
     }
