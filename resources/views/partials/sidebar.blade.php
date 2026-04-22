@@ -19,6 +19,15 @@
           </li>
 
           <li class="nav-item sidebar-list">
+            <a href="{{route('pos.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-cash-register"></i>
+              <p>
+                POS
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item sidebar-list">
             <a href="{{route('doctors.index')}}" class="nav-link">
                 <img src="dist/img/icons/Doctors-icon.png" class="nav-icon">
               <p>
@@ -103,6 +112,15 @@
                 </li>
 
                 <li class="nav-item sidebar-list">
+                    <a href="{{route('pos.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-cash-register"></i>
+                        <p>
+                            POS
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item sidebar-list">
                     <a href="{{route('doctors.index')}}" class="nav-link">
                         <img src="dist/img/icons/Doctors-icon.png" class="nav-icon">
                         <p>
@@ -171,6 +189,15 @@
                         <img src="dist/img/icons/Orders-icon.png" class="nav-icon">
                         <p>
                             Orders
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item sidebar-list">
+                    <a href="{{route('pos.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-cash-register"></i>
+                        <p>
+                            POS
                         </p>
                     </a>
                 </li>
