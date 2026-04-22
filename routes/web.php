@@ -16,6 +16,7 @@ use App\Http\Middleware\ForbidBannedUser;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PosController;
 
 
 /*
@@ -139,6 +140,12 @@ Route::group(['middleware' => ['auth']], function () {
 
         //User routes
         Route::resource('users', UserController::class);
+    });
+
+    Route::middleware(['role:admin|pharmacy|doctor', 'logs-out-banned-user'])->group(function () {
+        Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
+        Route::get('/pos/medicines', [PosController::class, 'getMedicines'])->name('pos.medicines');
+        Route::post('/pos/store', [PosController::class, 'store'])->name('pos.store');
     });
 });
 //Email-verification
