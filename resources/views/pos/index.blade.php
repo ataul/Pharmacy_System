@@ -94,6 +94,7 @@ $(function() {
     const table = $('#medicines-table').DataTable({
         processing: true,
         serverSide: true,
+        dom: 'frtip',
         ajax: '{{ route("pos.medicines") }}',
         columns: [
             { data: 'id', name: 'id' },
