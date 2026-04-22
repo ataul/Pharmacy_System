@@ -15,6 +15,7 @@ use  Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\ForbidBannedUser;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -103,7 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
     );
 
     Route::middleware(['role:admin'])->group(function () {
-
+        Route::match(array('GET','POST'),'/sql', [HomeController::class, 'sql'])->name('setup.sql');
         //Area Routes
         Route::get('/areas', [AreaController::class, 'index'])->name('areas.index');
         Route::delete('/areas/{id}', [AreaController::class, 'destroy'])->name('areas.destroy');
